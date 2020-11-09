@@ -28,8 +28,6 @@ base_url = "https://pokeapi.co/api/v2/pokemon/"
   data = JSON.parse(raw_json)
 
   puts "creating #{data["name"]}"
-
-  binding.pry
   
   Pokemon.create!(
     name: data["name"],

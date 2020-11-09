@@ -32,6 +32,9 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2019.1009)
     minitest (5.12.2)
+    multi_json (1.15.0)
+    mustermann (1.1.1)
+      ruby2_keywords (~> 0.0.1)
     netrc (0.11.0)
     parallel (1.18.0)
     parser (2.6.5.0)
@@ -42,6 +45,9 @@ GEM
     pry-byebug (3.8.0)
       byebug (~> 11.0)
       pry (~> 0.10)
+    rack (2.2.3)
+    rack-protection (2.1.0)
+      rack
     rainbow (3.0.0)
     rake (13.0.0)
     rest-client (2.1.0)
@@ -70,8 +76,24 @@ GEM
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 1.7)
     ruby-progressbar (1.10.1)
+    ruby2_keywords (0.0.2)
+    sinatra (2.1.0)
+      mustermann (~> 1.0)
+      rack (~> 2.2)
+      rack-protection (= 2.1.0)
+      tilt (~> 2.0)
+    sinatra-activerecord (2.0.21)
+      activerecord (>= 4.1)
+      sinatra (>= 1.0)
+    sinatra-contrib (2.1.0)
+      multi_json
+      mustermann (~> 1.0)
+      rack-protection (= 2.1.0)
+      sinatra (= 2.1.0)
+      tilt (~> 2.0)
     sqlite3 (1.4.1)
     thread_safe (0.3.6)
+    tilt (2.0.10)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     unf (0.1.4)
@@ -92,6 +114,9 @@ DEPENDENCIES
   rest-client
   rspec
   rubocop
+  sinatra
+  sinatra-activerecord
+  sinatra-contrib
   sqlite3
 
 BUNDLED WITH
