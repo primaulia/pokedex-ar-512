@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_09_140604) do
+ActiveRecord::Schema.define(version: 2020_11_10_101201) do
+
+  create_table "badges", force: :cascade do |t|
+    t.string "name"
+    t.integer "trainer_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["trainer_id"], name: "index_badges_on_trainer_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "name"
+    t.integer "quantity"
+    t.integer "pokemon_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["pokemon_id"], name: "index_items_on_pokemon_id"
+  end
 
   create_table "meals", force: :cascade do |t|
     t.string "name"
@@ -25,6 +42,17 @@ ActiveRecord::Schema.define(version: 2020_11_09_140604) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "element"
+    t.integer "trainer_id"
+    t.index ["trainer_id"], name: "index_pokemons_on_trainer_id"
   end
 
+  create_table "trainers", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "badges", "trainers"
+  add_foreign_key "items", "pokemons"
+  add_foreign_key "pokemons", "trainers"
 end

@@ -3,7 +3,9 @@
 <ul>
   <% @all_pokes.each do |poke| %>
   <li>
-    <%= poke.name %>
+    <a href="pokemon/<%= poke.id %>">
+      <%= poke.name %>
+    </a>    
   </li>
   <% end %>
 </ul>
