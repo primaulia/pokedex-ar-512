@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_10_101201) do
+ActiveRecord::Schema.define(version: 2020_11_10_141249) do
 
   create_table "badges", force: :cascade do |t|
     t.string "name"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_101201) do
 
   create_table "pokemons", force: :cascade do |t|
     t.string "name"
-    t.integer "level"
+    t.integer "level", default: 1
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "element"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_101201) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "address"
   end
 
   add_foreign_key "badges", "trainers"

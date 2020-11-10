@@ -25,18 +25,30 @@ get '/meals/:id' do # :id ==> dynamic params
   "display meal #{params[:id]}"
 end
 
-# SHOW ONE POKEMON
-get '/pokemon/:name' do
-  @poke = Pokemon.find_by_name(params[:name])
+# SHOW ONE POKEMON ✅
+get '/pokemon/:id' do
+  @poke = Pokemon.find(params[:id])
   erb :view
 end
 
-# GET ??
+get '/new-pokemon' do
+  erb :new
+end
+
+post '/create-pokemon' do
+  new_poke = Pokemon.new(
+    name: params['pokemon-name'],
+    element: params['pokemon-element']
+  )
+
+  new_poke.save! if new_poke.valid?
+  redirect "/pokemon/#{new_poke.id}"
+end
+
+# GET / POST ??
 # where will the data come from?
 # where should i pass the data to?
 # how should i display it
-#
-
 
 
 
